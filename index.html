@@ -233,7 +233,7 @@
     margin: 0 auto;
   }
 
-  .avaliacoes div, .faq div {
+  .avaliacoes div, .faq-item {
     background: #fff;
     margin: 20px auto;
     padding: 20px;
@@ -242,6 +242,46 @@
     box-shadow: 0 3px 8px rgba(0,0,0,0.05);
     max-width: 600px;
     text-align: left;
+  }
+  
+  /* Estilos específicos para FAQ */
+  .faq-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .faq-item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .faq-pergunta {
+    font-weight: bold;
+    color: #073468;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .faq-pergunta::after {
+    content: '+';
+    font-size: 1.5em;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .faq-item.active .faq-pergunta::after {
+    transform: rotate(45deg);
+  }
+  
+  .faq-resposta {
+    margin-top: 10px;
+    display: none;
+    padding-top: 10px;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .faq-item.active .faq-resposta {
+    display: block;
   }
 
   .whatsapp-fixo {
@@ -284,11 +324,9 @@
       width: 90%;
     }
 
-    .avaliacoes div, .faq div {
+    .avaliacoes div, .faq-item {
       width: 90%;
     }
-
-    
   }
 </style>
 </head>
@@ -373,25 +411,41 @@
   <div class="feedbacks-row">
       <div class="feedback-card">
           <h3>Jéssica Silva</h3>
-          <p>“Depois que fechei com vocês, minhas redes viraram outro nível! Atendimento rápido e conteúdo foda. Recomendo de olhos fechados.”</p>
+          <p>"Depois que fechei com vocês, minhas redes viraram outro nível! Atendimento rápido e conteúdo foda. Recomendo de olhos fechados."</p>
       </div>
       <div class="feedback-card">
           <h3>Rafael Costa</h3>
-          <p>“A ACM Digital salvou meu mês! Tava travado nas vendas e os posts que mandaram bombaram. Resultado real, sem enrolação.”</p>
+          <p>"A ACM Digital salvou meu mês! Tava travado nas vendas e os posts que mandaram bombaram. Resultado real, sem enrolação."</p>
       </div>
       <div class="feedback-card">
           <h3>Camila Moura</h3>
-          <p>“Qualidade absurda! Design profissional, vídeos com edição top e atendimento humanizado. Me senti tratada como empresária milionária, porra!”</p>
+          <p>"Qualidade absurda! Design profissional, vídeos com edição top e atendimento humanizado. Me senti tratada como empresária milionária, porra!"</p>
       </div>
   </div>
 </section>
 
 <section id="faq" class="faq">
   <h2>Perguntas Frequentes</h2>
-  <div><strong>Tem fidelidade?</strong><br>Não. Contrato mínimo de 30 dias. Depois, continua só se quiser resultado real.</div>
-  <div><strong>Formas de pagamento?</strong><br>Pix, cartão ou transferência. Sem lenga-lenga.</div>
-  <div><strong>Tem suporte?</strong><br>De 15 a 30 dias já vê diferença. Mas vai depender da sua fome.</div>
-  <div><strong>Cancelamento?</strong><br>Sim. Só avisar antes do ciclo novo, sem burocracia.</div>
+  
+  <div class="faq-item">
+    <div class="faq-pergunta">Tem fidelidade?</div>
+    <div class="faq-resposta">Não. Contrato mínimo de 30 dias. Depois, continua só se quiser resultado real.</div>
+  </div>
+  
+  <div class="faq-item">
+    <div class="faq-pergunta">Formas de pagamento?</div>
+    <div class="faq-resposta">Pix, cartão ou transferência. Sem lenga-lenga.</div>
+  </div>
+  
+  <div class="faq-item">
+    <div class="faq-pergunta">Tem suporte?</div>
+    <div class="faq-resposta">De 15 a 30 dias já vê diferença. Mas vai depender da sua fome.</div>
+  </div>
+  
+  <div class="faq-item">
+    <div class="faq-pergunta">Cancelamento?</div>
+    <div class="faq-resposta">Sim. Só avisar antes do ciclo novo, sem burocracia.</div>
+  </div>
 </section>
 
 <section id="contato" class="contato">
@@ -415,9 +469,11 @@
     })
   })
 
-  document.querySelectorAll(".faq-item h3").forEach((item) => {
+  // Script para o FAQ interativo
+  document.querySelectorAll(".faq-item").forEach((item) => {
     item.addEventListener("click", () => {
-      item.parentElement.classList.toggle("active");
+      // Toggle para a classe 'active' no item clicado
+      item.classList.toggle("active");
     });
   });
 </script>
