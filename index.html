@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACM Digital - Venda Mais com Marketing</title>
+  <meta name="description" content="Planos de marketing digital para empresas que querem vender mais. Gestão de redes sociais, tráfego pago e muito mais.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  .avaliacoes {
+    background: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.avaliacoes h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #073468;
+}
+
+.feedbacks-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.feedback-card {
+    background: #f3f8ff;
+    border-left: 4px solid #017aff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 320px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    transition: transform 0.2s ease;
+}
+
+.feedback-card:hover {
+    transform: scale(1.02);
+}
+
+.feedback-card h3 {
+    margin-bottom: 10px;
+    color: #073468;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.feedback-card p {
+    font-size: 0.95em;
+    color: #333;
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 768px) {
+    .feedbacks-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feedback-card {
+        width: 90%;
+    }
+}
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f2f5;
+    color: #052b5b;
+    line-height: 1.6;
+  }
+
+  header {
+    background: #073468;
+    color: #fff;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+  }
+
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #25D366;
+  }
+
+  section {
+    padding: 100px 20px 60px;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #052b5b 0%, #017aff 100%);
+    color: white;
+    text-align: center;
+    padding: 160px 20px 100px;
+  }
+
+  .hero h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    background: -webkit-linear-gradient(left, #ffffff, #dbeaff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero p {
+    font-size: 1.2em;
+    margin: 20px 0;
+    opacity: 0.9;
+  }
+
+  .hero a {
+    background: #25D366;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+
+  .hero a:hover {
+    background: #1daa4d;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+    font-weight: 700;
+    color: #073468;
+    position: relative;
+  }
+
+  h2::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: #25D366;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+
+  .planos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .plano {
+    background: white;
+    border-radius: 15px;
+    padding: 30px 25px;
+    width: 300px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .plano:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  }
+
+  .plano h3 {
+    font-size: 1.4em;
+    color: #017aff;
+    margin-bottom: 10px;
+  }
+
+  .plano p {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #25D366;
+  }
+
+  .plano ul {
+    margin: 15px 0;
+    padding-left: 20px;
+    text-align: left;
+  }
+
+  .plano ul li {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+  }
+
+  .plano a {
+    display: block;
+    text-align: center;
+    background: #017aff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .plano a:hover {
+    background: #015ec2;
+  }
+
+  .portfolio, .avaliacoes, .faq, .contato {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .avaliacoes div, .faq div {
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    border-left: 5px solid #017aff;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    max-width: 600px;
+    text-align: left;
+  }
+
+  .whatsapp-fixo {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+
+  .whatsapp-fixo:hover {
+    background: #1baa54;
+  }
+
+  footer {
+    background: #073468;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+  }
+
+  @media (max-width: 768px) {
+    nav ul {
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .hero h1 {
+      font-size: 2em;
+    }
+
+    .plano {
+      width: 90%;
+    }
+
+    .avaliacoes div, .faq div {
+      width: 90%;
+    }
+
+    
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#avaliacoes">Avaliações</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="inicio" class="hero">
+  <h1>Venda Mais com Estratégias de Marketing Digital</h1>
+  <p>Aumente suas vendas com quem entende de resultado.</p>
+  <a href="#planos">👉 Quero Crescer Agora</a>
+</section>
+
+<section id="planos">
+  <h2 style="text-align:center; margin-bottom: 30px;">Nossos Planos</h2>
+  <div class="planos">
+    <div class="plano">
+      <h3>Plano A1</h3>
+      <p><strong>R$479,90/mês</strong></p>
+      <ul>
+        <li>✅ 8 Posts Mensais</li>
+        <li>✅ 4 Vídeos curtos</li>
+        <li>✅ Repaginação do Insta</li>
+        <li>✅ Análise de Perfil</li>
+        <li>✅ Criação de Conteúdo</li>
+        <li>🎁 Bônus: Identidade Visual</li>
+      </ul>
+      <a href="https://wa.me/5531992748972" target="_blank">Assine Agora</a>
+    </div>
+
+    <div class="plano">
+      <h3>Plano A2</h3>
+      <p><strong>R$598,90/mês</strong></p>
+      <ul>
+        <li>✅ Tráfego Pago META</li>
+        <li>✅ 8 Posts Mensais</li>
+        <li>✅ 4 Vídeos curtos</li>
+        <li>✅ Roteiro de Vídeos</li>
+        <li>✅ Repaginação do Insta</li>
+        <li>✅ Relatórios Mensais</li>
+        <li>✅ Criação de Conteúdo</li>
+        <li>🎁 Bônus: Identidade Visual</li>
+      </ul>
+      <a href="https://wa.me/5531992748972" target="_blank">Assine Agora</a>
+    </div>
+
+    <div class="plano">
+      <h3>Plano A3</h3>
+      <p><strong>R$898,90/mês</strong></p>
+      <ul>
+        <li>✅ Tudo do A1 e A2</li>
+        <li>✅ Tráfego Pago Google</li>
+        <li>✅ Site Profissional</li>
+        <li>✅ Gravação de Vídeos</li>
+        <li>✅ Hospedagem</li>
+        <li>✅ Atualização de Site</li>
+        <li>🎁 Bônus: Identidade Visual + Site</li>
+      </ul>
+      <a href="https://wa.me/5531992748972" target="_blank">Assine Agora</a>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio" class="portfolio">
+  <h2>Portfólio</h2>
+  <p>Aqui virão os vídeos e posts reais do Instagram. Me manda os links depois.</p>
+</section>
+
+<section id="avaliacoes" class="avaliacoes">
+  <h2>O Que a Galera Tá Falando</h2>
+  <div class="feedbacks-row">
+      <div class="feedback-card">
+          <h3>Jéssica Silva</h3>
+          <p>“Depois que fechei com vocês, minhas redes viraram outro nível! Atendimento rápido e conteúdo foda. Recomendo de olhos fechados.”</p>
+      </div>
+      <div class="feedback-card">
+          <h3>Rafael Costa</h3>
+          <p>“A ACM Digital salvou meu mês! Tava travado nas vendas e os posts que mandaram bombaram. Resultado real, sem enrolação.”</p>
+      </div>
+      <div class="feedback-card">
+          <h3>Camila Moura</h3>
+          <p>“Qualidade absurda! Design profissional, vídeos com edição top e atendimento humanizado. Me senti tratada como empresária milionária, porra!”</p>
+      </div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <h2>Perguntas Frequentes</h2>
+  <div><strong>Tem fidelidade?</strong><br>Não. Contrato mínimo de 30 dias. Depois, continua só se quiser resultado real.</div>
+  <div><strong>Formas de pagamento?</strong><br>Pix, cartão ou transferência. Sem lenga-lenga.</div>
+  <div><strong>Tem suporte?</strong><br>De 15 a 30 dias já vê diferença. Mas vai depender da sua fome.</div>
+  <div><strong>Cancelamento?</strong><br>Sim. Só avisar antes do ciclo novo, sem burocracia.</div>
+</section>
+
+<section id="contato" class="contato">
+  <h2>Fale com a Gente</h2>
+  <p>📱 (31) 99274-8972</p>
+  <p>📸 @_acm_digital</p>
+</section>
+
+<a href="https://wa.me/5531992748972" class="whatsapp-fixo" target="_blank">Fale no WhatsApp</a>
+
+<footer>
+  <p>&copy; 2025 ACM Digital. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault()
+      const section = document.querySelector(link.getAttribute('href'))
+      section.scrollIntoView({ behavior: 'smooth' })
+    })
+  })
+
+  document.querySelectorAll(".faq-item h3").forEach((item) => {
+    item.addEventListener("click", () => {
+      item.parentElement.classList.toggle("active");
+    });
+  });
+</script>
+
+</body>
+</html>
