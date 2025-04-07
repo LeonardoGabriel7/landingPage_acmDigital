@@ -89,6 +89,22 @@
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    font-weight: 700;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: white;
+  }
 
   nav ul {
     display: flex;
@@ -106,6 +122,78 @@
 
   nav ul li a:hover {
     color: #25D366;
+  }
+  
+  /* Menu hamburger para mobile */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background: white;
+    margin: 3px 0;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+    
+    nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #073468;
+      flex-direction: column;
+      align-items: center;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    
+    nav.active {
+      max-height: 300px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+    
+    nav ul {
+      flex-direction: column;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      gap: 0;
+    }
+    
+    nav ul li {
+      width: 100%;
+      text-align: center;
+    }
+    
+    nav ul li a {
+      display: block;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
   }
 
   section {
@@ -311,11 +399,6 @@
   }
 
   @media (max-width: 768px) {
-    nav ul {
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
     .hero h1 {
       font-size: 2em;
     }
@@ -333,16 +416,28 @@
 <body>
 
 <header>
-  <nav>
-    <ul>
-      <li><a href="#inicio">Início</a></li>
-      <li><a href="#planos">Planos</a></li>
-      <li><a href="#portfolio">Portfólio</a></li>
-      <li><a href="#avaliacoes">Avaliações</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </nav>
+  <div class="header-container">
+    <div class="logo-container">
+      <a href="imagens/acm.png" class="logo">ACM Digital</a>
+    </div>
+    
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#planos">Planos</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <section id="inicio" class="hero">
@@ -461,6 +556,7 @@
 </footer>
 
 <script>
+  // Script para rolagem suave
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault()
@@ -472,8 +568,24 @@
   // Script para o FAQ interativo
   document.querySelectorAll(".faq-item").forEach((item) => {
     item.addEventListener("click", () => {
-      // Toggle para a classe 'active' no item clicado
       item.classList.toggle("active");
+    });
+  });
+  
+  // Script para o menu hamburguer
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+  
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    nav.classList.toggle('active');
+  });
+  
+  // Fechar o menu ao clicar em um link
+  document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      nav.classList.remove('active');
     });
   });
 </script>
