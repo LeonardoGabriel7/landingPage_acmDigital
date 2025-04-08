@@ -19,59 +19,68 @@
     background: #ffffff;
     padding: 60px 20px;
     text-align: center;
-}
+  }
 
-.avaliacoes h2 {
+  .avaliacoes h2 {
     font-size: 2em;
     margin-bottom: 40px;
     color: #073468;
-}
+  }
 
-.feedbacks-row {
+  .feedbacks-row {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     flex-wrap: wrap;
-}
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-.feedback-card {
+  .feedback-card {
     background: #f3f8ff;
     border-left: 4px solid #017aff;
     border-radius: 8px;
-    padding: 20px;
-    max-width: 320px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    width: 30%;
+    min-width: 300px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     text-align: left;
-    transition: transform 0.2s ease;
-}
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
 
-.feedback-card:hover {
-    transform: scale(1.02);
-}
+  .feedback-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 80px;
+    color: rgba(1, 122, 255, 0.1);
+    font-family: serif;
+  }
 
-.feedback-card h3 {
-    margin-bottom: 10px;
+  .feedback-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .feedback-card h3 {
+    margin-bottom: 15px;
     color: #073468;
-    font-size: 1.1em;
+    font-size: 1.3em;
     font-weight: bold;
-}
+    position: relative;
+    z-index: 1;
+  }
 
-.feedback-card p {
-    font-size: 0.95em;
+  .feedback-card p {
+    font-size: 1em;
     color: #333;
-    line-height: 1.5;
-}
-
-@media screen and (max-width: 768px) {
-    .feedbacks-row {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .feedback-card {
-        width: 90%;
-    }
-}
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
 
   body {
     font-family: 'Poppins', sans-serif;
@@ -205,35 +214,46 @@
     background: linear-gradient(135deg, #052b5b 0%, #017aff 100%);
     color: white;
     text-align: center;
-    padding: 160px 20px 100px;
+    padding: 180px 20px 120px; /* Aumentado para desktop */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 600px; /* Altura mínima para desktop */
   }
 
   .hero h1 {
-    font-size: 2.5em;
+    font-size: 2.8em;
     font-weight: 700;
     background: -webkit-linear-gradient(left, #ffffff, #dbeaff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
   }
 
   .hero p {
-    font-size: 1.2em;
-    margin: 20px 0;
+    font-size: 1.4em;
+    margin: 20px 0 40px;
     opacity: 0.9;
   }
 
   .hero a {
     background: #25D366;
     color: white;
-    padding: 12px 24px;
+    padding: 15px 30px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: 600;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1.1em;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
   }
 
   .hero a:hover {
     background: #1daa4d;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
   }
 
   h2 {
@@ -316,13 +336,13 @@
     background: #015ec2;
   }
 
-  .portfolio, .avaliacoes, .faq {
+  .portfolio, .faq {
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
   }
 
-  .avaliacoes div, .faq-item {
+  .faq-item {
     background: #fff;
     margin: 20px auto;
     padding: 20px;
@@ -514,6 +534,11 @@
   }
   
   @media (max-width: 768px) {
+    .hero {
+      padding: 140px 20px 80px;
+      min-height: 400px;
+    }
+
     .hero h1 {
       font-size: 2em;
     }
@@ -522,7 +547,7 @@
       width: 90%;
     }
 
-    .avaliacoes div, .faq-item {
+    .faq-item {
       width: 90%;
     }
     
@@ -541,6 +566,12 @@
     
     .resultado-item {
       width: 40%;
+    }
+
+    .feedback-card {
+      width: 90%;
+      min-width: auto;
+      padding: 25px 20px;
     }
   }
 </style>
@@ -703,8 +734,6 @@
 <section id="contato" class="contato">
   <h2>Fale com a Gente</h2>
   <div class="contato-grid">
-   
-    
     <div class="contato-item">
       <i class="fab fa-whatsapp"></i>
       <h3>WhatsApp</h3>
@@ -718,8 +747,6 @@
       <p>@_acm_digital</p>
       <a href="https://instagram.com/_acm_digital" target="_blank">Seguir</a>
     </div>
-    
-    
   </div>
 </section>
 
@@ -765,7 +792,7 @@
     });
   });
   
-  // Script para contadores
+  // Script melhorado para contadores - correção para mobile
   function iniciarContagem(elementId, valorFinal, duracao) {
     let elemento = document.getElementById(elementId);
     let inicio = 0;
@@ -784,21 +811,25 @@
       }
       
       if (inicio < valorFinal) {
-        setTimeout(atualizar, 50);
+        requestAnimationFrame(function() {
+          setTimeout(atualizar, 50);
+        });
       }
     }
     
     atualizar();
   }
   
-  // Função para verificar se o elemento está visível na tela
+  // Função melhorada para verificar se o elemento está visível na tela
   function isElementInViewport(el) {
+    if (!el) return false;
+    
     const rect = el.getBoundingClientRect();
     return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom >= 0 &&
+      rect.left <= (window.innerWidth || document.documentElement.clientWidth) &&
+      rect.right >= 0
     );
   }
   
@@ -806,19 +837,24 @@
   let contadoresIniciados = false;
   
   function verificarContadores() {
-    const secaoResultados = document.querySelector('.resultados');
+    const secaoResultados = document.getElementById('resultados');
     if (isElementInViewport(secaoResultados) && !contadoresIniciados) {
-      iniciarContagem('contador1', 120, 2000);
-      iniciarContagem('contador2', 437, 2000);
-      iniciarContagem('contador3', 158, 2000);
-      iniciarContagem('contador4', 320, 2000);
-      contadoresIniciados = true;
+      setTimeout(function() {
+        iniciarContagem('contador1', 120, 2000);
+        iniciarContagem('contador2', 437, 2000);
+        iniciarContagem('contador3', 158, 2000);
+        iniciarContagem('contador4', 320, 2000);
+        contadoresIniciados = true;
+      }, 300);
     }
   }
   
-  // Verificar quando a página carrega e quando rola
-  window.addEventListener('load', verificarContadores);
-  window.addEventListener('scroll', verificarContadores);
+  // Garantir que os elementos existam antes de iniciar
+  document.addEventListener('DOMContentLoaded', function() {
+    verificarContadores();
+    // Verificar quando a página rola
+    window.addEventListener('scroll', verificarContadores);
+  });
 </script>
 
 </body>
