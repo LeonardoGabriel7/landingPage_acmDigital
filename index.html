@@ -522,48 +522,6 @@
     color: #25D366;
   }
   
-  /* Novo contador de resultados */
-  .resultados {
-    background: #073468;
-    padding: 60px 20px;
-    color: white;
-    text-align: center;
-  }
-  
-  .resultados h2 {
-    color: white;
-    margin-bottom: 50px;
-  }
-  
-  .resultados h2::after {
-    background: #25D366;
-  }
-  
-  .resultados-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  .resultado-item {
-    width: 200px;
-  }
-  
-  .resultado-numero {
-    font-size: 3em;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #25D366;
-  }
-  
-  .resultado-texto {
-    font-size: 1.1em;
-    opacity: 0.9;
-  }
-  
   /* Novo estilo de destaque para recursos adicionais */
   .recursos-adicionais {
     background: #f3f8ff;
@@ -622,6 +580,85 @@
     line-height: 1.6;
   }
   
+  /* Nova seção para criação de sites */
+  .criacao-sites {
+    background: linear-gradient(135deg, #052b5b 0%, #017aff 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-top: 40px;
+  }
+  
+  .criacao-sites h2 {
+    color: white;
+    margin-bottom: 30px;
+  }
+  
+  .criacao-sites h2::after {
+    background: #25D366;
+  }
+  
+  .sites-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 40px 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .sites-container p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .sites-btn {
+    display: inline-block;
+    background: #25D366;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+  }
+  
+  .sites-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+    background: #1daa4d;
+  }
+  
+  .sites-features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  
+  .site-feature {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px 20px;
+    border-radius: 10px;
+    width: 45%;
+    min-width: 250px;
+    backdrop-filter: blur(5px);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .site-feature i {
+    font-size: 24px;
+    color: #25D366;
+  }
+  
   @media (max-width: 768px) {
     .hero {
       padding: 140px 20px 80px;
@@ -649,10 +686,6 @@
       width: 90%;
     }
     
-    .resultados-grid {
-      gap: 20px;
-    }
-    
     .resultado-item {
       width: 40%;
     }
@@ -664,6 +697,10 @@
     }
     
     .recurso-item {
+      width: 90%;
+    }
+    
+    .site-feature {
       width: 90%;
     }
   }
@@ -687,8 +724,8 @@
       <ul>
         <li><a href="#inicio">Início</a></li>
         <li><a href="#planos">Planos</a></li>
-        <li><a href="#resultados">Resultados</a></li>
         <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#criacao-sites">Sites</a></li> <!-- Nova seção no menu -->
         <li><a href="#avaliacoes">Avaliações</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contato">Contato</a></li>
@@ -756,34 +793,39 @@
   </div>
 </section>
 
-<!-- Nova seção de resultados -->
-<section id="resultados" class="resultados">
-  <h2>Resultados Reais Para Nossos Clientes</h2>
-  <div class="resultados-grid">
-    <div class="resultado-item">
-      <div class="resultado-numero" id="contador1">0</div>
-      <div class="resultado-texto">Clientes Atendidos</div>
-    </div>
-    <div class="resultado-item">
-      <div class="resultado-numero" id="contador2">0</div>
-      <div class="resultado-texto">Campanhas Realizadas</div>
-    </div>
-    <div class="resultado-item">
-      <div class="resultado-numero" id="contador3">0</div>
-      <div class="resultado-texto">Aumento em Vendas</div>
-    </div>
-    <div class="resultado-item">
-      <div class="resultado-numero" id="contador4">0</div>
-      <div class="resultado-texto">ROI Médio</div>
-    </div>
-  </div>
-</section>
-
 <section id="portfolio" class="portfolio">
   <h2>Conheça Nosso Trabalho</h2>
   <p>Veja como transformamos as redes sociais e vendas dos nossos clientes</p>
   <div class="video-container">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/P6-8TYGWl68?si=d1B6oemCkwUNCoHX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Nova seção de criação de sites -->
+<section id="criacao-sites" class="criacao-sites">
+  <h2>Criação de Sites Profissionais</h2>
+  <div class="sites-container">
+    <p>Precisa de um site de alta performance que converte visitantes em clientes? Desenvolvemos sites profissionais com foco em resultados e otimizados para SEO.</p>
+    <a href="https://acm-digital.netlify.app/?fbclid=PAZXh0bgNhZW0CMTEAAaeMWaMKVbvZPTltwoXIEFMFZY1VdxZoHR0rBeOxIf3TjTT4hKyQX-be-e-7jg_aem_dKz6pV3Bl3B5Kfes_y-hbg" class="sites-btn" target="_blank">Conheça Nossa Agência de Sites</a>
+    
+    <div class="sites-features">
+      <div class="site-feature">
+        <i class="fas fa-mobile-alt"></i>
+        <span>100% Responsivo para Todos os Dispositivos</span>
+      </div>
+      <div class="site-feature">
+        <i class="fas fa-tachometer-alt"></i>
+        <span>Carregamento Ultra Rápido</span>
+      </div>
+      <div class="site-feature">
+        <i class="fas fa-search"></i>
+        <span>Otimizado para Buscadores (SEO)</span>
+      </div>
+      <div class="site-feature">
+        <i class="fas fa-shield-alt"></i>
+        <span>Certificado SSL e Proteção Avançada</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -827,56 +869,14 @@
   </div>
 </section>
 
-<section id="faq" class="faq">
-  <h2>Perguntas Frequentes</h2>
-  
-  <div class="faq-item">
-    <div class="faq-pergunta">Tem fidelidade?</div>
-    <div class="faq-resposta">Não. Contrato mínimo de 30 dias. Depois, continua só se quiser resultado real.</div>
-  </div>
-  
-  <div class="faq-item">
-    <div class="faq-pergunta">Formas de pagamento?</div>
-    <div class="faq-resposta">Pix, cartão ou transferência. Sem lenga-lenga.</div>
-  </div>
-  
-  <div class="faq-item">
-    <div class="faq-pergunta">Tem suporte?</div>
-    <div class="faq-resposta">De 15 a 30 dias já vê diferença. Mas vai depender da sua fome.</div>
-  </div>
-  
-  <div class="faq-item">
-    <div class="faq-pergunta">Cancelamento?</div>
-    <div class="faq-resposta">Sim. Só avisar antes do ciclo novo, sem burocracia.</div>
-  </div>
-</section>
-
-<!-- Seção de contato reformulada -->
-<section id="contato" class="contato">
-  <h2>Fale com a Gente</h2>
-  <div class="contato-grid">
-    <div class="contato-item">
-      <i class="fab fa-whatsapp"></i>
-      <h3>WhatsApp</h3>
-      <p>Atendimento rápido</p>
-      <a href="https://wa.me/5531992748972" target="_blank">Enviar mensagem</a>
-    </div>
-    
-    <div class="contato-item">
-      <i class="fab fa-instagram"></i>
-      <h3>Instagram</h3>
-      <p>@_acm_digital</p>
-      <a href="https://instagram.com/_acm_digital" target="_blank">Seguir</a>
-    </div>
-  </div>
-</section>
+<!-- Aqui você pode adicionar a seção FAQ e Contato que foram removidas do código fornecido -->
 
 <a href="https://wa.me/5531992748972" class="whatsapp-fixo" target="_blank">
   <i class="fab fa-whatsapp"></i>
 </a>
 
 <footer>
-  <p>&copy; 2025 ACM Digital. Todos os direitos reservados.</p>
+  <p>&copy; 2025 ACM Digital - Todos os direitos reservados</p>
 </footer>
 
 <script>
