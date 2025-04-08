@@ -214,11 +214,11 @@
     background: linear-gradient(135deg, #052b5b 0%, #017aff 100%);
     color: white;
     text-align: center;
-    padding: 180px 20px 120px; /* Aumentado para desktop */
+    padding: 180px 20px 120px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 600px; /* Altura mínima para desktop */
+    min-height: 700px; /* Altura aumentada para desktop */
   }
 
   .hero h1 {
@@ -239,15 +239,18 @@
   .hero a {
     background: #25D366;
     color: white;
-    padding: 15px 30px;
+    padding: 12px 25px; /* Botão menor em tamanho */
     border-radius: 30px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
     display: inline-block;
     margin-top: 20px;
-    font-size: 1.1em;
+    font-size: 1em; /* Fonte menor para o botão */
     box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    max-width: 250px; /* Limitando a largura do botão */
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero a:hover {
@@ -301,6 +304,13 @@
     color: #017aff;
     margin-bottom: 10px;
   }
+  
+  .plano-subtitulo {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
 
   .plano p {
     font-size: 1.2em;
@@ -340,6 +350,27 @@
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
+  }
+  
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    margin: 30px auto;
+    max-width: 800px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
   }
 
   .faq-item {
@@ -533,6 +564,64 @@
     opacity: 0.9;
   }
   
+  /* Novo estilo de destaque para recursos adicionais */
+  .recursos-adicionais {
+    background: #f3f8ff;
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .recursos-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 30px auto 0;
+  }
+  
+  .recurso-item {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    width: 30%;
+    min-width: 300px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .recurso-item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .recurso-item i {
+    font-size: 40px;
+    color: #017aff;
+    margin-bottom: 15px;
+    background: #f3f8ff;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+  }
+  
+  .recurso-item h3 {
+    color: #073468;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+  }
+  
+  .recurso-item p {
+    color: #333;
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+  
   @media (max-width: 768px) {
     .hero {
       padding: 140px 20px 80px;
@@ -572,6 +661,10 @@
       width: 90%;
       min-width: auto;
       padding: 25px 20px;
+    }
+    
+    .recurso-item {
+      width: 90%;
     }
   }
 </style>
@@ -615,6 +708,7 @@
   <div class="planos">
     <div class="plano">
       <h3>Plano A1</h3>
+      <div class="plano-subtitulo">Gestão de Mídias Sociais</div>
       <p><strong>R$479,90/mês</strong></p>
       <ul>
         <li>✅ 8 Posts Mensais</li>
@@ -629,6 +723,7 @@
 
     <div class="plano">
       <h3>Plano A2</h3>
+      <div class="plano-subtitulo">Gestão de Rede Social + Tráfego Pago</div>
       <p><strong>R$598,90/mês</strong></p>
       <ul>
         <li>✅ Tráfego Pago META</li>
@@ -645,6 +740,7 @@
 
     <div class="plano">
       <h3>Plano A3</h3>
+      <div class="plano-subtitulo">Marketing Completo</div>
       <p><strong>R$898,90/mês</strong></p>
       <ul>
         <li>✅ Tudo do A1 e A2</li>
@@ -684,8 +780,11 @@
 </section>
 
 <section id="portfolio" class="portfolio">
-  <h2>Portfólio</h2>
-  <p>Aqui virão os vídeos e posts reais do Instagram. Me manda os links depois.</p>
+  <h2>Conheça Nosso Trabalho</h2>
+  <p>Veja como transformamos as redes sociais e vendas dos nossos clientes</p>
+  <div class="video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/P6-8TYGWl68?si=d1B6oemCkwUNCoHX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
 </section>
 
 <section id="avaliacoes" class="avaliacoes">
@@ -703,6 +802,28 @@
           <h3>Camila Moura</h3>
           <p>"Qualidade absurda! Design profissional, vídeos com edição top e atendimento humanizado. Me senti tratada como empresária milionária, porra!"</p>
       </div>
+  </div>
+</section>
+
+<!-- Nova seção de recursos adicionais -->
+<section class="recursos-adicionais">
+  <h2>Por Que Escolher a ACM Digital?</h2>
+  <div class="recursos-grid">
+    <div class="recurso-item">
+      <i class="fas fa-chart-line"></i>
+      <h3>Resultados Mensuráveis</h3>
+      <p>Acompanhe em tempo real todos os dados de crescimento, engajamento e vendas através de relatórios mensais detalhados.</p>
+    </div>
+    <div class="recurso-item">
+      <i class="fas fa-users"></i>
+      <h3>Equipe Especializada</h3>
+      <p>Nossos profissionais são especializados em diferentes áreas do marketing digital para oferecer o melhor resultado para seu negócio.</p>
+    </div>
+    <div class="recurso-item">
+      <i class="fas fa-rocket"></i>
+      <h3>Crescimento Acelerado</h3>
+      <p>Estratégias otimizadas para gerar resultados rápidos e sustentáveis para o seu negócio escalar de forma consistente.</p>
+    </div>
   </div>
 </section>
 
