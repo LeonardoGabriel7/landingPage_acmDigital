@@ -278,25 +278,64 @@
     border-radius: 2px;
   }
 
+  /* Ajustes nos planos - CORRIGIDO O ESPAÇAMENTO */
   .planos {
     display: flex;
     justify-content: center;
+    align-items: stretch;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 30px; /* Aumentado o espaçamento entre os planos */
+    max-width: 1200px; /* Aumentado para dar mais espaço */
+    margin: 0 auto;
   }
 
   .plano {
     background: white;
     border-radius: 15px;
     padding: 30px 25px;
-    width: 300px;
+    width: 28%;
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0; /* Removido o margin negativo */
+    position: relative;
+    z-index: 1;
+  }
+
+  .plano:nth-child(2) {
+    width: 32%;
+    padding: 40px 30px;
+    margin-top: -20px;
+    z-index: 2;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    border: 2px solid rgba(1, 122, 255, 0.1);
+    position: relative;
+  }
+
+  .plano:nth-child(2)::before {
+    content: 'Mais Popular';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #25D366;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
   }
 
   .plano:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  }
+
+  .plano:nth-child(2):hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
   }
 
   .plano h3 {
@@ -320,13 +359,23 @@
 
   .plano ul {
     margin: 15px 0;
-    padding-left: 20px;
+    padding-left: 0;
+    list-style-type: none;
     text-align: left;
   }
 
   .plano ul li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     font-size: 0.95em;
+    padding-left: 25px;
+    position: relative;
+  }
+
+  .plano ul li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 
   .plano a {
@@ -522,62 +571,116 @@
     color: #25D366;
   }
   
-  /* Novo estilo de destaque para recursos adicionais */
+  /* Estilos melhorados para a seção de recursos adicionais - CORRIGIDO ESPAÇAMENTO */
   .recursos-adicionais {
-    background: #f3f8ff;
-    padding: 60px 20px;
+    background: linear-gradient(135deg, #f3f8ff 0%, #e0eeff 100%);
+    padding: 80px 20px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 0; /* Removido o espaço */
+    position: relative;
+    overflow: hidden;
   }
-  
+
+  .recursos-adicionais::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(1, 122, 255, 0.05);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+    z-index: 0;
+  }
+
+  .recursos-adicionais::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(1, 122, 255, 0.05);
+    border-radius: 50%;
+    bottom: -50px;
+    right: -50px;
+    z-index: 0;
+  }
+
   .recursos-grid {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 40px;
     max-width: 1200px;
-    margin: 30px auto 0;
+    margin: 50px auto 0;
+    position: relative;
+    z-index: 1;
   }
-  
+
   .recurso-item {
     background: white;
-    border-radius: 10px;
-    padding: 25px;
+    border-radius: 15px;
+    padding: 40px 30px;
     width: 30%;
     min-width: 300px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 5px solid transparent;
   }
-  
+
   .recurso-item:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
+    border-bottom: 5px solid #017aff;
   }
-  
+
   .recurso-item i {
     font-size: 40px;
-    color: #017aff;
-    margin-bottom: 15px;
-    background: #f3f8ff;
-    width: 80px;
-    height: 80px;
+    color: white;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #017aff 0%, #0159b0 100%);
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto 20px;
+    margin: 0 auto 30px;
+    box-shadow: 0 10px 20px rgba(1, 122, 255, 0.2);
+    position: relative;
+    transition: all 0.3s ease;
   }
-  
+
+  .recurso-item:hover i {
+    transform: scale(1.1);
+    box-shadow: 0 15px 25px rgba(1, 122, 255, 0.3);
+  }
+
   .recurso-item h3 {
     color: #073468;
-    margin-bottom: 10px;
-    font-size: 1.3em;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    position: relative;
+    padding-bottom: 15px;
   }
-  
+
+  .recurso-item h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: #25D366;
+    border-radius: 2px;
+  }
+
   .recurso-item p {
-    color: #333;
-    font-size: 0.95em;
-    line-height: 1.6;
+    color: #444;
+    font-size: 1em;
+    line-height: 1.7;
   }
   
   /* Nova seção para criação de sites */
@@ -586,7 +689,7 @@
     color: white;
     text-align: center;
     padding: 80px 20px;
-    margin-top: 40px;
+    margin-top: 0; /* Removido o espaço */
   }
   
   .criacao-sites h2 {
@@ -671,6 +774,12 @@
 
     .plano {
       width: 90%;
+      margin: 15px 0;
+    }
+  
+    .plano:nth-child(2) {
+      width: 90%;
+      margin: 15px 0;
     }
 
     .faq-item {
@@ -748,11 +857,11 @@
       <div class="plano-subtitulo">Gestão de Mídias Sociais</div>
       <p><strong>R$479,90/mês</strong></p>
       <ul>
-        <li>✅ 8 Posts Mensais</li>
-        <li>✅ 4 Vídeos curtos</li>
-        <li>✅ Repaginação do Insta</li>
-        <li>✅ Análise de Perfil</li>
-        <li>✅ Criação de Conteúdo</li>
+        <li>8 Posts Mensais</li>
+        <li>4 Vídeos curtos</li>
+        <li>Repaginação do Insta</li>
+        <li>Análise de Perfil</li>
+        <li>Criação de Conteúdo</li>
         <li>🎁 Bônus: Identidade Visual</li>
       </ul>
       <a href="https://wa.me/5531992748972" target="_blank">Assine Agora</a>
@@ -763,13 +872,13 @@
       <div class="plano-subtitulo">Gestão de Rede Social + Tráfego Pago</div>
       <p><strong>R$598,90/mês</strong></p>
       <ul>
-        <li>✅ Tráfego Pago META</li>
-        <li>✅ 8 Posts Mensais</li>
-        <li>✅ 4 Vídeos curtos</li>
-        <li>✅ Roteiro de Vídeos</li>
-        <li>✅ Repaginação do Insta</li>
-        <li>✅ Relatórios Mensais</li>
-        <li>✅ Criação de Conteúdo</li>
+        <li>Tráfego Pago META</li>
+        <li>8 Posts Mensais</li>
+        <li>4 Vídeos curtos</li>
+        <li>Roteiro de Vídeos</li>
+        <li>Repaginação do Insta</li>
+        <li>Relatórios Mensais</li>
+        <li>Criação de Conteúdo</li>
         <li>🎁 Bônus: Identidade Visual</li>
       </ul>
       <a href="https://wa.me/5531992748972" target="_blank">Assine Agora</a>
@@ -780,12 +889,12 @@
       <div class="plano-subtitulo">Marketing Completo</div>
       <p><strong>R$898,90/mês</strong></p>
       <ul>
-        <li>✅ Tudo do A1 e A2</li>
-        <li>✅ Tráfego Pago Google</li>
-        <li>✅ Site Profissional</li>
-        <li>✅ Gravação de Vídeos</li>
-        <li>✅ Hospedagem</li>
-        <li>✅ Atualização de Site</li>
+        <li>Tudo do A1 e A2</li>
+        <li>Tráfego Pago Google</li>
+        <li>Site Profissional</li>
+        <li>Gravação de Vídeos</li>
+        <li>Hospedagem</li>
+        <li>Atualização de Site</li>
         <li>🎁 Bônus: Identidade Visual + Site</li>
       </ul>
       <a href="https://wa.me/5531992748972" target="_blank">Assine Agora</a>
