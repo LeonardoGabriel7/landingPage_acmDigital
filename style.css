@@ -783,15 +783,39 @@
   /* Responsividade */
   @media (max-width: 768px) {
     .sobre-cta {
-      padding: 30px 20px;
-      margin: 40px auto;
+      padding: 25px 15px;
+      margin: 30px auto;
+      max-width: 85%; /* Reduz a largura para 85% do container pai no mobile */
+      width: calc(100% - 30px); /* Alternativa que garante margens laterais */
     }
     
     .sobre-cta h3 {
-      font-size: 1.5em;
+      font-size: 1.4em;
+      margin-bottom: 20px;
+    }
+    
+    .sobre-btn {
+      padding: 12px 24px;
+      font-size: 1em;
     }
   }
   
+  /* Para telas ainda menores */
+  @media (max-width: 480px) {
+    .sobre-cta {
+      max-width: 90%;
+      padding: 20px 12px;
+    }
+    
+    .sobre-cta h3 {
+      font-size: 1.3em;
+    }
+    
+    .sobre-btn {
+      padding: 10px 20px;
+      font-size: 0.9em;
+    }
+  }
   
   
   /* ===== FOOTER ===== */
