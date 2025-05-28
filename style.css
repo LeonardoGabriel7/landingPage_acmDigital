@@ -780,6 +780,62 @@
     box-shadow: 0 12px 25px rgba(37, 211, 102, 0.5);
   }
   
+
+
+        .instagram-redirect-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin: auto;
+        }
+
+        .instagram-redirect-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .instagram-redirect-text {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .instagram-redirect-button {
+            display: inline-block;
+    background: linear-gradient(to bottom right, #2edc7a, #25D366);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.4s ease;
+    font-size: 1.1em;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.5px;
+        }
+
+        
+
+        .instagram-redirect-button:hover {
+            
+    background: linear-gradient(to bottom right, #1daa4d, #1a9949);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.5);
+        }
+
+
+        @media (max-width: 768px) {
+.instagram-redirect-container {
+            width:300px;
+        }
+        }
+
+
   /* Responsividade */
   @media (max-width: 768px) {
     .sobre-cta {
