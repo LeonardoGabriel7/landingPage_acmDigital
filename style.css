@@ -133,7 +133,7 @@
   }
   
   .hero p {
-    font-size: 1.5em;
+    font-size: 1.6em;
     margin: 20px auto 40px;
     max-width: 700px;
     opacity: 0.95;
@@ -141,7 +141,17 @@
     position: relative;
     z-index: 2;
   }
-  
+
+
+@media (max-width: 768px) {
+   .hero p {
+    font-size: 1.2em;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+
+}
   .hero a {
     background: linear-gradient(to bottom right, #2edc7a, #25D366);
     color: white;
