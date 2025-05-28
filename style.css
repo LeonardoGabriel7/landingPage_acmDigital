@@ -467,33 +467,49 @@
     display: block;
   }
   
-  /* ===== BOTÃO WHATSAPP FIXO ===== */
-  .whatsapp-fixo {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-    z-index: 1000;
-    transition: transform 0.3s ease;
+ .whatsapp-fixo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.whatsapp-fixo:hover {
+  transform: scale(1.15);
+  animation: none;
+}
+
+.whatsapp-fixo i {
+  font-size: 36px;
+}
+
+/* Animação de pulso */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3), 0 0 0 0 rgba(37, 211, 102, 0.7);
   }
-  
-  .whatsapp-fixo:hover {
-    transform: scale(1.1);
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3), 0 0 0 10px rgba(37, 211, 102, 0);
   }
-  
-  .whatsapp-fixo i {
-    font-size: 32px;
+  100% {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3), 0 0 0 0 rgba(37, 211, 102, 0);
   }
-  
+}
   /* ===== SEÇÃO DE CONTATO ===== */
   .contato {
     max-width: 900px;
