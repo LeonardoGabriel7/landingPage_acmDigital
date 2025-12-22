@@ -152,7 +152,7 @@
 
 
 }
-  .hero a {
+  .hero  a {
     background: linear-gradient(to bottom right, #2edc7a, #25D366);
     color: white;
     padding: 14px 32px;
@@ -173,11 +173,40 @@
     letter-spacing: 0.5px;
   }
   
-  .hero a:hover {
+.hero a:hover {
     background: linear-gradient(to bottom right, #1daa4d, #1a9949);
     transform: translateY(-5px) scale(1.03);
     box-shadow: 0 12px 25px rgba(37, 211, 102, 0.5);
   }
+  
+
+  .avaliacoes  a {
+    background: linear-gradient(to bottom right, #2edc7a, #25D366);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.4s ease;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1.1em;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.5px;
+  }
+
+.avaliacoes a:hover {
+    background: linear-gradient(to bottom right, #1daa4d, #1a9949);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.5);
+  }
+  
   
   /* ===== ESTILOS GERAIS PARA SEÇÕES E TÍTULOS ===== */
   section {
